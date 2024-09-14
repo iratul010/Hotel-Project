@@ -1,22 +1,18 @@
 import { Link } from "react-router-dom";
 import { IoIosArrowDropdown } from "react-icons/io";
+import { MdKeyboardArrowUp } from "react-icons/md";
+
 import { useEffect, useRef, useState } from "react";
 const Navbar = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isArrow, setIsArrow] = useState(false);
   const dropdownRef = useRef(null);
   const handleDropdownToggle = (e) => {
     e.preventDefault();
-    setIsDropdownOpen(!isDropdownOpen);
+ 
   };
-  const handleClickOutside = (e) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-      setIsDropdownOpen(false);
-    }
-
-  };
-  const handleMouseLeave = () => {
-    setIsDropdownOpen(false);
-  };
+ 
+ 
+  /*
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -24,7 +20,12 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+ const handleClickOutside = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setIsDropdownOpen(false);
+    }
 
+  };*/
   return (
     <nav className="navbar">
       <div className="navbar__brand">
@@ -34,7 +35,7 @@ const Navbar = () => {
             src="../../../public/logo/hotel.png"
             alt=""
           />
-          <span>Hotel</span>
+          <span>Hotel Booking</span>
         </Link>
       </div>
       <ul className="navbar__menu">
@@ -43,8 +44,8 @@ const Navbar = () => {
         </li>
 
         <li className="navbar__item" onClick={handleDropdownToggle}  ref={dropdownRef}    >
-          <a href=""><span>Rooms</span><IoIosArrowDropdown /></a>
-          <ul  className={`navbar__dropdown--menu ${isDropdownOpen ? 'open' : ''}`} onMouseLeave={handleMouseLeave}>
+          <a href=""><span>Rooms</span>{!isArrow?<IoIosArrowDropdown />:<MdKeyboardArrowUp />}</a>
+          <ul  className={`navbar__dropdown--menu`} >
             <li>
               <Link to="/rooms/:deluxe">Deluxe&nbsp;Rooms</Link>
             </li>

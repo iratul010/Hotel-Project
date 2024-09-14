@@ -5,8 +5,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
+  @media screen and (max-width: $bp-medium) {
+    font-size: 1.5rem;
+  }
   &__brand {
     width: 20%;
+    height: 100%;
 
     & a {
       display: flex;
@@ -15,7 +19,12 @@
       align-items: center;
       font-size: 3rem;
       text-decoration: none;
-      color: rgb(196, 142, 179);
+      color: rgba(235, 232, 232, 0.822);
+      @media screen and (max-width: $bp-medium) {
+        font-size: 2rem;
+      }
+    }
+    & span {
     }
   }
   &__logo {
@@ -38,52 +47,78 @@
   &__menu &__item {
     margin-left: 5rem;
     &:last-of-type {
-      margin-right: 3rem;
+      margin-left: 2;
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      margin-left: 3rem;
     }
   }
   &__item {
- 
+    padding: 1rem 0.5rem;
+
     position: relative;
-    & a{
+   &:hover{
+    cursor: pointer;
+   }
+    & a {
       display: flex;
-      justify-content: center;
+      justify-content: start;
       align-items: center;
       gap: 5px;
     }
   }
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    transform: scaleX(0);
+    transition: transform 0.4s, border 0.5s;
+    transform-origin: left;
+  }
 
+  &__item:hover::before {
+    width: 100%;
+    border-bottom: 1px solid white;
+    transform: scaleX(1);
+  }
+  &__item:nth-child(2):hover::before {
+    border: none;
+  }
   &__dropdown--menu {
     display: none;
     list-style: none;
     position: absolute;
     top: 100%;
-    left: -4rem;
-    width: 270%;
+    left: 0;
+    width: 170%;
     border: 1px solid #ddd;
     z-index: 1111111;
     transition: all 0.2s;
-    &  li {
-      
+    & li {
       display: block;
       background-color: var(--color-grey-light-3);
       cursor: pointer;
       padding: 0.5rem 1rem;
-      & a{
-        transition: all .2s;
-        color: black  ;
+      & a {
+        transition: all 0.2s;
+        color: black;
       }
     }
   }
   &__item:hover &__dropdown--menu {
-
+    display: block;
     & li:hover {
-      background-color:var(--color-grey-dark-1);
+      background-color: var(--color-grey-dark-1);
     }
-    & li:hover a{
+    & li:hover a {
       color: white;
     }
   }
-  &__dropdown--menu.open {
-    display: block;
-  }
+  // &__dropdown--menu.open {
+  //   display: block;
+  // }
 }
