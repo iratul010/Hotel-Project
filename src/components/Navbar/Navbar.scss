@@ -1,0 +1,89 @@
+.navbar {
+  font-size: 1.8rem;
+  background-color: var(--color-grey-dark-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  &__brand {
+    width: 20%;
+
+    & a {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      text-decoration: none;
+      color: rgb(196, 142, 179);
+    }
+  }
+  &__logo {
+    height: 4rem;
+  }
+  &__menu {
+    list-style: none;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    & a {
+      color: var(--color-grey-light-2);
+      text-decoration: none;
+    }
+
+    @media screen and (min-width: $bp-medium) {
+    }
+  }
+  &__menu &__item {
+    margin-left: 5rem;
+    &:last-of-type {
+      margin-right: 3rem;
+    }
+  }
+  &__item {
+ 
+    position: relative;
+    & a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+
+  &__dropdown--menu {
+    display: none;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: -4rem;
+    width: 270%;
+    border: 1px solid #ddd;
+    z-index: 1111111;
+    transition: all 0.2s;
+    &  li {
+      
+      display: block;
+      background-color: var(--color-grey-light-3);
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      & a{
+        transition: all .2s;
+        color: black  ;
+      }
+    }
+  }
+  &__item:hover &__dropdown--menu {
+
+    & li:hover {
+      background-color:var(--color-grey-dark-1);
+    }
+    & li:hover a{
+      color: white;
+    }
+  }
+  &__dropdown--menu.open {
+    display: block;
+  }
+}

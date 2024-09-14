@@ -1,0 +1,13 @@
+//base
+@import "./base";
+//mixin
+@import "./mixins";
+//components
+@import "./component";
+//layouts
+@import "../Layouts/layout";
+
+
+//pages
+// /Home
+@import '../Pages/Home/Home.scss'

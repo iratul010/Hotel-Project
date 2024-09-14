@@ -1,0 +1,64 @@
+
+//*RESPONSIVE BREAKPOINT*/
+$bp-largest: 120em; // 1200px
+$bp-large: 100em; // 1000px
+$bp-medium: 80em; // 800px
+$bp-small: 60em; // 600px
+
+
+:root {
+  /* Color Variables */
+
+  --color-primary: #eb2f64;
+  --color-primary-light: #FF3366;
+  --color-primary-dark: #BA265D;
+  --color-primary-glass: #253041;
+  --color-secondary: #5918df;
+
+  /* Grey Tones */
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  /* Basic Colors */
+  --color-white: #fff;
+  --color-black: #333;
+
+  /* Font Variables */
+  --font-primary: "Nunito", sans-serif;
+  --font-display: "Josefin Sans", sans-serif;
+
+  /* Responsive Breakpoints */
+  --bp-largest: 75em; /* 1200px, বড় পিসি, বড় ডেস্কটপ */
+  --bp-large: 62.5em; /* 1000px, ছোট ডেস্কটপ, বড় ট্যাবলেট */
+  --bp-medium: 50em; /* 800px, ট্যাবলেট, মিডিয়াম স্ক্রীন মোবাইল */
+  --bp-small: 37.5em; /* 600px, মোবাইল, ছোট স্ক্রীন Android */
+  
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before{
+
+  box-sizing: inherit;
+}
+html{
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body{
+  color: var(--color-grey-dark-2);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  line-height: 1.6;
+}
