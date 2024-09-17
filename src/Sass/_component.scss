@@ -1,9 +1,25 @@
 //Navbar
-@import '../components/Navbar/Navbar.scss';
-//Header
-@import '/src/components/Header/Header.scss';
-//AboutUs
-@import '/src/components/AboutUs/About.scss';
-//Footer
-@import '/src/components/Footer/Footer.scss';
+@import "../components/Navbar/Navbar.scss";
+
  
+//Footer
+@import "/src/components/Footer/Footer.scss";
+
+//pages
+//Home
+@import '/src/Pages/Home/Home.scss';
+
+
+//Components
+//Hero
+@import "/src/components/HeroSection/Hero.scss";
+//Booking Search
+@import "/src/components/BookingSearch/BookingSearch.scss";
+//Featured Hotels
+@import "/src/components/FeaturedHotels/FeaturedHotels.scss";
+//Customer Reviews
+@import "/src/components/CustomerReviews/CustomerRevies.scss";
+//About Us
+@import "/src/components/AboutUs/AboutUs.scss";
+
+

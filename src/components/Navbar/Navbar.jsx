@@ -3,15 +3,13 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { MdKeyboardArrowUp } from "react-icons/md";
 
 import { useEffect, useRef, useState } from "react";
-const Navbar = () => {
+const Navbar = ({navbarRef}) => {
   const [isArrow, setIsArrow] = useState(false);
   const dropdownRef = useRef(null);
   const handleDropdownToggle = (e) => {
     e.preventDefault();
- 
   };
- 
- 
+
   /*
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -27,15 +25,15 @@ const Navbar = () => {
 
   };*/
   return (
-    <nav className="navbar">
+    <nav className="navbar" ref={navbarRef}>
       <div className="navbar__brand">
         <Link to="/">
           <img
             className="navbar__logo"
-            src="../../../public/logo/hotel.png"
+            src="../../../public/logo/room-service.png"
             alt=""
           />
-          <span>Hotel Booking</span>
+          <span>HotelSmart</span>
         </Link>
       </div>
       <ul className="navbar__menu">
@@ -43,9 +41,16 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
 
-        <li className="navbar__item" onClick={handleDropdownToggle}  ref={dropdownRef}    >
-          <a href=""><span>Rooms</span>{!isArrow?<IoIosArrowDropdown />:<MdKeyboardArrowUp />}</a>
-          <ul  className={`navbar__dropdown--menu`} >
+        <li
+          className="navbar__item"
+          onClick={handleDropdownToggle}
+          ref={dropdownRef}
+        >
+          <a href="">
+            <span>Rooms</span>
+            {!isArrow ? <IoIosArrowDropdown /> : <MdKeyboardArrowUp />}
+          </a>
+          <ul className={`navbar__dropdown--menu`}>
             <li>
               <Link to="/rooms/:deluxe">Deluxe&nbsp;Rooms</Link>
             </li>
@@ -73,6 +78,49 @@ const Navbar = () => {
           <Link to="/login">Login</Link>
         </li>
       </ul>
+      <div className="navbar__navigation">
+        <input
+          type="checkbox"
+          className="navbar__navigation--checkbox"
+          id="navi-toggle"
+        />
+        <label htmlFor="navi-toggle" className="navbar__navigation--btn">
+          {/* navbar icon */}
+          <span className="navbar__navigation--icon">&nbsp;</span>
+        </label>
+        <div className="navbar__navigation--background"></div>
+        <nav className="navbar__navigation--nav">
+          <ul className="navbar__navigation--list">
+            <li className="navbar__navigation--item">
+              <Link><span>01</span>Home</Link>
+            </li>
+         
+            <li className="navbar__navigation--item">
+              <Link><span>02</span>Rooms</Link>
+            </li>
+        
+            <li className="navbar__navigation--item">
+              <Link><span>03</span>Amenities</Link>
+            </li>
+         
+            <li className="navbar__navigation--item">
+              <Link><span>04</span>About Us</Link>
+            </li>
+         
+            <li className="navbar__navigation--item">
+              <Link><span>05</span>Contact</Link>
+            </li>
+           
+            <li className="navbar__navigation--item">
+              <Link><span>06</span>Book Now</Link>
+            </li>
+    
+            <li className="navbar__navigation--item">
+              <Link><span>07</span>Login</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </nav>
   );
 };

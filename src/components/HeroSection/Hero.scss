@@ -1,0 +1,37 @@
+.hero{
+  &__wrapper{
+    display: flex;
+  }
+  &__content{
+    margin-top: 20rem;
+    & small{
+      font-size: 2.2rem;
+    }
+    &--title{
+      color: var(--color-grey-light-1);
+      font-size: 4.6rem;
+      @media screen and (max-width:$bp-small) {
+        font-size: 2.4rem;
+      }
+    }
+    &--description{
+      font-size: 1.8rem;
+      color: var(--color-grey-dark-3);
+    }
+    @media screen and (max-width:$bp-small) {
+      margin-top: 10rem;
+      & small{
+        font-size: 1.8rem;
+      }
+      &--title{
+        font-size: 2.4rem;
+      }
+      &--description{
+        font-size: 1.6rem;
+      }
+    }
+  }
+  
+ 
+
+}

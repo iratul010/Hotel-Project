@@ -1,17 +1,23 @@
 .navbar {
   font-size: 1.8rem;
-  background-color: var(--color-grey-dark-1);
+  background-color: var(--color-grey-light-3);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
+ 
   @media screen and (max-width: $bp-medium) {
     font-size: 1.5rem;
+  }
+  @media screen and (max-width: $bp-small) {
+    font-size: 1.4rem;
   }
   &__brand {
     width: 20%;
     height: 100%;
-
+    @media screen and (max-width: $bp-small) {
+      width: auto;
+    }
     & a {
       display: flex;
       gap: 1rem;
@@ -19,9 +25,15 @@
       align-items: center;
       font-size: 3rem;
       text-decoration: none;
-      color: rgba(235, 232, 232, 0.822);
+      color: rgb(82, 69, 15);
       @media screen and (max-width: $bp-medium) {
         font-size: 2rem;
+      }
+      @media screen and (max-width: $bp-small) {
+        font-size: 1.8rem;
+      }
+      &:hover{ 
+        color: rgba(82, 69, 15, 0.747);
       }
     }
     & span {
@@ -29,6 +41,9 @@
   }
   &__logo {
     height: 4rem;
+    @media screen and (max-width: $bp-small) {
+      height: 2.5rem;
+    }
   }
   &__menu {
     list-style: none;
@@ -36,8 +51,12 @@
     display: flex;
     justify-content: end;
     align-items: center;
+    // Mobile View
+    @media screen and (max-width: $bp-small) {
+      display: none;
+    }
     & a {
-      color: var(--color-grey-light-2);
+      color: var(--color-grey-dark-1);
       text-decoration: none;
     }
 
@@ -56,17 +75,26 @@
   }
   &__item {
     padding: 1rem 0.5rem;
-
+     
     position: relative;
-   &:hover{
-    cursor: pointer;
-   }
+    &:hover {
+      
+      cursor: pointer;
+    }
     & a {
       display: flex;
       justify-content: start;
       align-items: center;
       gap: 5px;
+ 
+     
     }
+    &:hover{
+      & a{
+        color: rgba(82, 69, 15, 0.822);
+      }
+    }
+   
   }
   &__item::before {
     content: "";
@@ -82,7 +110,7 @@
 
   &__item:hover::before {
     width: 100%;
-    border-bottom: 1px solid white;
+    border-bottom: 1.8px solid rgba(82, 69, 15, 0.747);
     transform: scaleX(1);
   }
   &__item:nth-child(2):hover::before {
@@ -100,25 +128,161 @@
     transition: all 0.2s;
     & li {
       display: block;
-      background-color: var(--color-grey-light-3);
+       background-color: white;
       cursor: pointer;
       padding: 0.5rem 1rem;
       & a {
         transition: all 0.2s;
-        color: black;
+        color: black !important;
       }
     }
   }
   &__item:hover &__dropdown--menu {
     display: block;
     & li:hover {
-      background-color: var(--color-grey-dark-1);
+      background-color: var(--color-grey-light-1);
+      text-shadow: 0 1rem 5rem rgba(255,255,255,0.1);
     }
     & li:hover a {
-      color: white;
+      color: rgba(82, 69, 15, 0.815) !important;
     }
   }
   // &__dropdown--menu.open {
   //   display: block;
   // }
+
+  &__navigation {
+    display: none;
+    @media screen and (max-width: $bp-small) {
+      display: block;
+    }
+    &--checkbox {
+      display: none;
+    }
+    &--btn {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      position: fixed;
+      top: 1.4rem;
+      right: 3.7rem;
+      z-index: 2000;
+      cursor: pointer;
+      box-shadow: 0 1rem 3rem rgba(255, 255, 255, 0.1);
+    }
+    &--icon {
+      position: relative;
+      margin-top: 2rem;
+      margin-left: 0.5rem;
+
+      &,
+      &::after,
+      &::before {
+        width: 3rem;
+        height: 2px;
+        background-color: white;
+        display: inline-block;
+        transition: all .2s;
+      }
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      &::before {
+        top: -0.7rem;
+      }
+      &::after {
+        top: 0.7rem;
+      }
+    }
+    &--checkbox:checked + &--btn &--icon {
+      background-color: transparent;
+    }
+    &--checkbox:checked + &--btn &--icon::before {
+      top: 0;
+      transform: rotate(315deg);
+    }
+    &--checkbox:checked + &--btn &--icon::after {
+      top: 0;
+      transform: rotate(-315deg);
+    }
+    &--background {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      position: fixed;
+      top: 1.4rem;
+      right: 3.7rem;
+ 
+      background-image: radial-gradient(
+        rgba(17, 7, 6, 0.616),
+        rgba(82, 69, 15, 0.363)
+      );
+      z-index: 1000;
+      transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+      //transform: scale(90);//when i checked then after it need
+    }
+    &--nav {
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1500;
+      //hidden
+      opacity: 0;
+      width: 0;
+      transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    }
+    &--list {
+      @include absCenter;
+      list-style: none;
+      text-align: center;
+      width: 100%;
+    }
+    &--item {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+      & a {
+        display: inline-block;
+        padding: 1rem;
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        text-transform: uppercase;
+
+        background-image: linear-gradient(
+          110deg,
+          transparent 0%,
+          transparent 50%,
+          rgb(238, 234, 227) 50%
+        );
+        background-size: 250%;
+        transition: all 0.6s;
+      }
+      & span {
+        margin-right: 1rem;
+        display: inline-block;
+      }
+      & a:hover,
+      & a:active {
+        color: var(--color-grey-dark-1);
+        background-position: 100%;
+        transform: translateX(1rem);
+      }
+    }
+    &--checkbox:checked ~ &--background {
+      background-image: radial-gradient(
+        rgba(17, 7, 6, 0.952),
+        rgba(82, 69, 15, 0.801)
+      );
+      transform: scale(100);
+    }
+    &--checkbox:checked ~ &--nav {
+      opacity: 1;
+      width: 100%;
+    }
+
+  }
 }

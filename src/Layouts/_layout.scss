@@ -1,11 +1,13 @@
  .main-layout{
   display: flex;
   flex-direction: column;
+  justify-content: center;  
   min-height: 100vh;
   background-color: rgb(59, 48, 48);
  }
  .content{
   flex:1;
+ 
  }
  .dashboard-layout{
 
