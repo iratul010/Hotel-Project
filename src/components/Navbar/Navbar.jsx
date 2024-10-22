@@ -2,14 +2,21 @@ import { Link } from "react-router-dom";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { MdKeyboardArrowUp } from "react-icons/md";
 
-import { useEffect, useRef, useState } from "react";
+import {   useRef, useState } from "react";
+// eslint-disable-next-line react/prop-types
 const Navbar = ({navbarRef}) => {
   const [isArrow, setIsArrow] = useState(false);
   const dropdownRef = useRef(null);
-  const handleDropdownToggle = (e) => {
+  const handleMouseEnter = (e) => {
     e.preventDefault();
+    setIsArrow(true)
+  };
+  const handleMouseLeave= (e) => {
+    e.preventDefault();
+    setIsArrow(false)
   };
 
+ 
   /*
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -43,14 +50,14 @@ const Navbar = ({navbarRef}) => {
 
         <li
           className="navbar__item"
-          onClick={handleDropdownToggle}
-          ref={dropdownRef}
+          ref={dropdownRef} onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
-          <a href="">
-            <span>Rooms</span>
+          <a href="#" >
+            <span>Rooms</span> 
             {!isArrow ? <IoIosArrowDropdown /> : <MdKeyboardArrowUp />}
           </a>
-          <ul className={`navbar__dropdown--menu`}>
+          <ul className='navbar__dropdown--menu'>
             <li>
               <Link to="/rooms/:deluxe">Deluxe&nbsp;Rooms</Link>
             </li>

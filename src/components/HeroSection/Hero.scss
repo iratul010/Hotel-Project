@@ -1,9 +1,19 @@
+
 .hero{
+  
   &__wrapper{
+     width: 65%;
+  
     display: flex;
+    flex-direction: column;
+     
+    @media screen and (max-width:$bp-medium) {
+      align-items: center;
+   }
   }
   &__content{
-    margin-top: 20rem;
+    margin-top: 15rem;
+ 
     & small{
       font-size: 2.2rem;
     }
@@ -32,6 +42,100 @@
     }
   }
   
+
+  &__form {
+    
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    color: white;
+    border-radius: 5px;
+     background-color: rgba(255, 255, 255, 0.15);
+     @media screen and (max-width:$bp-medium) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 2rem;
+      flex-direction: column;
+   }
+
+       @media screen and (max-width: $bp-small){
+        grid-template-columns: 1fr; 
+      padding: 1rem;
+     }
  
 
+     &--group{
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+       font-size: 1.6rem;
+       gap: 1rem;
+  
+       @media screen and (max-width:$bp-medium) {
+        font-size: 1.4rem;
+        gap: .5rem;
+ 
+     }
+       & label{
+        white-space:nowrap;
+       }
+        & select   {
+ 
+           padding: .5rem 1rem;
+           @media screen and (max-width:$bp-medium) {
+          
+         }
+        }
+     
+     }
+     &--date-picker{
+      width: 30rem;
+      margin: 1rem ;
+      display: flex;
+       gap: 1rem;
+        
+      border: 1px solid rgba(255,255,255,0.3);
+       
+    
+      & .calendar-icon{
+   
+        font-size: 4rem;
+        color: rgba(184, 153, 107, 0.856) !important;
+      }
+     & :nth-child(1){
+      padding: .5rem 1rem;
+      @media screen and (max-width:$bp-medium) {
+         padding: .5rem;
+     }
+     }
+     }
+     &--submit{
+    
+      padding: 1rem ;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: white;
+      background: rgba(255, 255, 255, 0.151); /* Glass type color */
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 8px;
+      backdrop-filter: blur(10px); /* For glass effect */
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      &:hover{
+        color:  rgb(248, 181, 80);
+      }
+     }
+  }
+ 
+  
+}
+.calendar-icon{
+ font-size: 1.8rem;
+
+ color: rgb(197, 192, 169);
 }

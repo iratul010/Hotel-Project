@@ -12,7 +12,7 @@ const MainLayout = () => {
       setNavbarHeight(navbarRef.current.offsetHeight);
     }
   }, []);
-  console.log(navbarHeight)
+ 
   return (
     <div className="main-layout">
     <Navbar navbarRef={navbarRef} />

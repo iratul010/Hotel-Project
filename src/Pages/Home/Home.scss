@@ -3,14 +3,14 @@
   display: flex;
   flex-direction: column;
   background-color: var(--color-grey-light-2);
+  
   &__section {
+    width: 100%;
     margin: 0 auto;
     padding: 6rem 2rem;
-    background-color: rgb(201, 193, 193);
+    
 
-    & + .home__section {
-      margin-top: 5rem; // Space between sections
-    }
+   
     @media screen and (max-width: 768px) {
       padding: 4rem 1.5rem;
     }
@@ -23,7 +23,7 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      background-image: url("/src/assets/hero-img/home.png");
+      background-image: url("assets/hero-img/home.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;

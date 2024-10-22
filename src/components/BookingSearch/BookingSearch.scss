@@ -1,0 +1,69 @@
+.bookingSearch{
+  height: 100%;
+  text-align: center;
+  margin: 15rem 0;
+  display: grid;
+  grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end];
+  &-heading{
+    font-size: 3.5rem;
+    grid-column: col-start 3 / col-end 6;
+    margin-bottom: 2rem;
+  }
+}
+
+ .hotels-list{
+   grid-column: center-start/center-end;
+  display: grid;
+  grid-template-columns:  repeat(auto-fit, minmax(25rem,1fr)) ;//when so many card show 
+  grid-gap: 7rem;
+ }
+ .hotel  {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  &__name{
+    grid-column: 1/-1;
+      color: red;
+  }
+  &__location{
+    grid-column: 1/-1;
+  }
+ &__image{
+   grid-column: 1/-1;
+   width: 100%;
+   background-size: contain;
+  }
+
+  &__rooms,
+  &__area,
+  &__price,
+  &__available{
+     grid-column: 1fr;
+  }
+  &__rating{
+    grid-column: 1/-1;
+  }
+  &__btn{
+    text-align: center;
+     grid-column: 1/-1;
+  }
+
+ }
+  
+ .room-card__rating {
+  font-size: 2.5rem;
+  color: gold;
+  position: relative;
+  &::before{
+    content: "*****";
+    color: lightgray;
+     
+  }
+  &::after{
+    content: "*****";
+    color: gold;
+    position: absolute;
+    left: 0;
+  width: calc(var(--rating) / 5 * 100%);
+  overflow: hidden;
+  }
+}

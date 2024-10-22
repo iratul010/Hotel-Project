@@ -37,6 +37,7 @@
       }
     }
     & span {
+      
     }
   }
   &__logo {
@@ -51,7 +52,6 @@
     display: flex;
     justify-content: end;
     align-items: center;
-    // Mobile View
     @media screen and (max-width: $bp-small) {
       display: none;
     }
@@ -66,7 +66,7 @@
   &__menu &__item {
     margin-left: 5rem;
     &:last-of-type {
-      margin-left: 2;
+      margin-left: 2rem;
     }
 
     @media screen and (max-width: $bp-medium) {
@@ -101,7 +101,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 3px;
     height: 100%;
     transform: scaleX(0);
     transition: transform 0.4s, border 0.5s;
@@ -251,7 +250,7 @@
         color: var(--color-grey-light-1);
         text-decoration: none;
         text-transform: uppercase;
-
+        //BG-ANIMATION
         background-image: linear-gradient(
           110deg,
           transparent 0%,
