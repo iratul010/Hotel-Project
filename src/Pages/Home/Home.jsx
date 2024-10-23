@@ -1,9 +1,10 @@
-import { useLoaderData, useOutletContext } from "react-router-dom";
+import {   useOutletContext } from "react-router-dom";
 import AboutUs from "../../components/AboutUs/AboutUs";
 import BookingSearch from "../../components/BookingSearch/BookingSearch";
 import CustomerReviews from "../../components/CustomerReviews/CustomerReviews";
-import FeaturedHotels from "../../components/FeaturedHotels/FeaturedHotels";
+ 
 import Hero from "../../components/HeroSection/Hero";
+import HotelsGallery from "../../components/HotelsGallery/HotelsGallery";
 
 const Home = (   ) => {
  
@@ -18,8 +19,8 @@ const Home = (   ) => {
       <section className="home__section home__section--booking-search">
         <BookingSearch   />
       </section>
-      <section className="home__section home__section--featured-hotels">
-        <FeaturedHotels />
+      <section className="home__section home__section--hotels-gallery">
+        <HotelsGallery />
       </section>
       <section className="home__section home__section--customer-reviews">
         <CustomerReviews />

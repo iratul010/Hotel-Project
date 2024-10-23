@@ -15,6 +15,11 @@ $bp-small: 60em; // 600px
   --color-primary-glass: #253041;
   --color-secondary: #5918df;
 
+  --color-primary-1: #c69963;
+  --color-primary-dark-1: #B28451;
+
+ 
+  --color-secondary: #101d2c;
   /* Grey Tones */
   --color-grey-dark-1: #333;
   --color-grey-dark-2: #777;
@@ -30,7 +35,7 @@ $bp-small: 60em; // 600px
 
   /* Font Variables */
   --font-primary: "Nunito", sans-serif;
-  --font-display: "Josefin Sans", sans-serif;
+  --font-display: 'Josefin Sans' ;
 
   /* Responsive Breakpoints */
   --bp-largest: 75em; /* 1200px, বড় পিসি, বড় ডেস্কটপ */
